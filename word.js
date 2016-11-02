@@ -1,30 +1,15 @@
-var Hangman = function(random_word) {
+var word_check = function(guessed_word, secret_word) {
 
-  this.chosen_word = random_word;
-  this.hidden_array = [];
-  this.hidden_word = '';
-  this.check_word = function() {
+  if (guessed_word == secret_word) {
 
-    if (this.chosen_word == this.hidden_word) {
+    return true;
 
-      return true;
-
-    }
+  } else {
 
     return false;
 
   }
 
-  for (i = 0; i < this.chosen_word.length; i++) {
+};
 
-    this.hidden_array.push('_');
-
-  }
-
-  this.hidden_word = this.hidden_array.toString();
-
-  this.hidden_word = this.hidden_word.replace(/,/g, ' ');
-
-}
-
-exports.hangman = Hangman;
+exports.check = word_check;

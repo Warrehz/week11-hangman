@@ -1,32 +1,17 @@
-var check_letter = function(user_choice, word) {
+var check_letter = function(letter, word_array, hidden_word_array) {
 
-  var word_array = [];
-  var secret_word_string = '';
+  for (i = 0; i < word_array.length; i++) {
 
-  for (a = 0; a < word.length; a++) {
+    if (letter == word_array[i]) {
 
-    word_array.push('_');
-
-  }
-
-  for (i = 0; i < word.length; i++) {
-
-    if (word.charAt(i) === user_choice) {
-
-      word_array[i] = user_choice;
+      hidden_word_array[i] = letter;
 
     }
 
   }
 
-  word_string = word_array.toString();
-
-  word_string = word_string.replace(/,/g, '');
-
-  return word_string;
+  return hidden_word_array;
 
 }
 
-exports.letter_check = check_letter;
-
-console.log(check_letter("a", "abba"));
+exports.check = check_letter;
